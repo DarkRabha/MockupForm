@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chartered Accountant Form</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="fontawesome.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="popper.js"></script>
+	<script type="text/javascript" src="bootstrap.js"></script>
+	<script type="text/javascript" src="ajaxjquery.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary py-0">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link" href="index.html">Personal Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="education.html">Education Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="travel.html">Travel Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="social.html">Social Relations and Involvement</a>
+		</li>
+		<li class="nav-item active">
+			<a class="nav-link" href="anonymous.html">Other Anonymous Details</a>
+		</li>
+	</ul>
+</nav>
+
+
+<div class="container">
+	<form id="anondetails" method="post">
+		<header><h3>Anonymous Details</h3></header>
+		<div>
+			<span for="userid">User ID:</span>
+			<input type="text" class="form-control form-control-sm" id="userid" name="userid">
+		</div>
+			<table class="table table-bordered" style="margin-top: 10px;">
+				<thead class="thead-info">
+					<tr>
+						<th>Field Name</th>
+						<th>Value</th>
+						<th>Options</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<input type="text" class="form-control form-control-sm" id="fieldname" name="fieldname"
+							placeholder="Field Name">
+						</td>
+						<td>
+							<input type="text" class="form-control form-control-sm" id="fieldvalue" name="fieldvalue"
+							placeholder="Value">
+						</td>
+						<td>
+							<button type="submitanon" class="btn btn-info btn-sm" name="subitanon">Done</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="form-group">
+				<button type="anonymoussubmit" class="btn btn-info btn-sm" id="anonymoussubmit" name="anonymoussubmit" style="margin-top: 10px;">
+					Submit
+				</button>
+			</div>
+	</form>
+</div>
+<div class="container">
+	<button type="button" class="btn btn-sm"><a href="">Proceed</a></button>
+</div>
+
+<div id="id">
+</div>
+
+</body>
+
+<script type="text/javascript">
+	$('#anondetails').submit(function(e)
+	{
+		e.preventDefault();
+		$.ajax(
+		{
+			type: "POST",
+			url: 'anonymous.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#id").html(data);
+			}
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'anonymous_table.php',
+			success: function(data)
+			{
+				$("#id").html(data);
+			}
+		});
+	});
+
+
+function del(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'anonymous_delete.php',
+			data: {
+				"id" : n
+			},
+			success: function(data)
+			{
+				$("#id").html(data);
+				
+			},error:function(resp){
+				alert(resp);
+			}
+		});
+}
+
+
+</script>
+
+</html>

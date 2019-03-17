@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chartered Accountant Form</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="popper.js"></script>
+	<script type="text/javascript" src="bootstrap.js"></script>
+	<script type="text/javascript" src="ajaxjquery.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary py-0">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link" href="index.html">Personal Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="education.html">Education Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="travel.html">Travel Details</a>
+		</li>
+		<li class="nav-item active">
+			<a class="nav-link" href="social.html">Social Relations and Involvement</a>
+		</li>
+		<li class="nav-items">
+			<a class="nav-link" href="anonymous.html">Other Anonymous Details</a>
+		</li>
+	</ul>
+</nav>
+
+<div class="container">
+	<form id="socialdetails" method="post">
+		<div>
+			<header><h4>Social Relations and Involvement:</h4></header>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="nameorg">Name of The Organisation:</span>
+				<input type="text" class="form-control form-control-sm" id="nameorg" name="nameorg" placeholder="Name Of the Organisation">
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#adddetailsorg" style="margin-top: 10px;">+Add Details</button>
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="yearjoin">Year Of Joining:</span>
+				<input type="text" class="form-control form-control-sm" id="yearjoin" name="yearjoin" placeholder="Year Of Joining">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="periodofcon">Period of Continuance:</span>
+				<input type="text" class="form-control form-control-sm" id="periodofcon" name="periodofcon" placeholder="Period Of Continuance">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="yearofterm">Year Of Termination:</span>
+				<input type="text" class="form-control form-control-sm" id="yearofterm" name="yearofterm" placeholder="Year Of Termination">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="reasonofterm">Reason Of Termination:</span>
+				<input type="text" class="form-control form-control-sm" id="reasonofterm" name="reasonofterm" placeholder="Reason Of Termination">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="addperiod">Add Period:</span>
+				<input type="text" class="form-control form-control-sm" id="addperiod" name="addperiod" placeholder="Add Period">
+				<button type="button" class="btn btn-sm btn-info" onclick="addmoreperiod()" style="margin-top: 10px;">+Add More Period</button>
+				<p id="addmoreperiodname"></p>
+				<input type="text" id="moreperiodname" name="moreperiodname" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="addposition">Add Position:</span>
+				<input type="text" class="form-control form-control-sm" id="addposition" name="addposition"
+				placeholder="Add More Position">
+				<button type="button" class="btn btn-sm btn-info" onclick="addmoreposition()" style="margin-top: 10px;">+Add More Position</button>
+				<p id="addmorepositionname"></p>
+				<input type="text" id="morepositionname" name="morepositionname" style="display: none;">
+			</div>
+			<div class="col-lg-12 col-md-12 form-group">
+				<button type="submitsocial" class="btn btn-info btn-sm" name="submitsocial" id="submitsocial">Submit</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<button type="button" class="btn btn-sm"><a href="anonymous.html">Proceed</a></button>
+</div>
+
+<div class="modal" id="adddetailsorg">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="organisationdetails" method="post">
+				<div class="modal-header">
+					<h4 class="modal-title">Add Organisation Details</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="nameorganisation">Name:</span>
+							<input type="text" class="form-control form-control-sm" id="nameorganisation" name="nameorganisation" placeholder="Name Of The Organisation">
+						</div>
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="natureoforganisation">Nature Of Organisation:</span>
+							<input type="text" class="form-control form-control-sm" id="natureoforganisation" name="natureoforganisation" placeholder="Nature Of Organisation">
+						</div>
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="panno">Pan Number:</span>
+							<input type="text" class="form-control form-control-sm" id="panno" name="panno" placeholder="Pan Number">
+						</div>
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="gstno">GST Number:</span>
+							<input type="text" class="form-control form-control-sm" id="gstno" name="gstno"
+							placeholder="GST Number">
+						</div>
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="goalsandobj">Goals and Objectives:</span>
+							<input type="text" class="form-control form-control-sm" id="goalsandobj" name="goalsandobj" placeholder="Goals and Objectives">
+						</div>
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="dateinc">Date Of Incorporation:</span>
+							<input type="date" class="form-control form-control-sm" id="dateinc" name="dateinc" placeholder="Date Of Incorporation">
+						</div>
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="organisationphno">Phone Number:</span>
+							<input type="text" class="form-control form-control-sm" id="organisationphno" name="organisationphno" placeholder="Organisation Phone Number">
+						</div>
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="membership">Membership Strength:</span>
+							<input type="text" class="form-control form-control-sm" id="membership" name="membership" placeholder="Membership Strength">
+						</div>
+						<div class="col-lg-6 col-md-6 form-group">
+							<span for="assocmember">Associated Member:</span>
+							<input type="text" class="form-control form-control-sm" id="assocmember" name="assocmember" placeholder="Associated Member">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer form-group">
+					<button type="orgsubmit" class="btn btn-info btn-sm form-control" name="orgsubmit" id="orgsubmit">Submit</button>
+				</div>
+			</form>
+			<div class="container form-group">
+				<form id="organisation_address" method="post">
+					<header><h4>Organisation Address:</h4></header>
+					<span>Address Category</span>
+					<input type="text" class="form-control form-control-sm" id="category" name="category" placeholder="Address Category">
+					<span>Address</span>
+					<textarea class="form-control form-control-sm" rows="5" name="orgaddress" id="orgaddress"></textarea>
+					<span>Date</span>
+					<input type="date" class="form-control form-control-sm" name="orgdate" id="orgdate">
+					<button type="submitadd" class="btn btn-sm btn-info">+Add Address</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="socialrelid"></div>
+
+<div id="orgdetailsid"></div>
+
+<div id="orgaddid"></div>
+</body>
+
+<script type="text/javascript">
+	
+	var per = [];
+
+	function addmoreperiod()
+	{
+		var p = document.getElementById('addperiod').value;
+		per.push(p);
+		document.getElementById('addmoreperiodname').innerHTML = per;
+
+		var p1 = document.getElementById('addmoreperiodname').innerHTML;
+		document.getElementById('moreperiodname').value = p1;
+	}
+
+	var pos = [];
+
+	function addmoreposition()
+	{
+		var ps = document.getElementById('addposition').value;
+		pos.push(ps);
+		document.getElementById('addmorepositionname').innerHTML = pos;
+
+		var ps1 = document.getElementById('addmorepositionname').innerHTML;
+		document.getElementById('morepositionname').value = ps1;
+	}
+
+</script>
+
+<script type="text/javascript">
+	$('#socialdetails').submit(function(e)
+	{
+		e.preventDefault();
+		$.ajax(
+		{
+			type: "POST",
+			url: 'social.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#socialrelid").html(data);
+			}
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'social_table.php',
+			success: function(data)
+			{
+				$("#socialrelid").html(data);
+			}
+		});
+	});
+
+
+function del1(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'social_delete.php',
+			data: {
+				"sid" : n
+			},
+			success: function(data)
+			{
+				$("#socialrelid").html(data);
+			}
+		});
+}
+$('#organisationdetails').submit(function(e)
+	{
+		e.preventDefault();
+		$.ajax(
+		{
+			type: "POST",
+			url: 'organisation_details.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#orgdetailsid").html(data);
+			}
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'organisation_details_table.php',
+			success: function(data)
+			{
+				$("#orgdetailsid").html(data);
+			}
+		});
+	});
+
+
+function del(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'organisation_details_delete.php',
+			data: {
+				"id" : n
+			},
+			success: function(data)
+			{
+				$("#orgdetailsid").html(data);
+			}
+		});
+}
+
+$('#organisation_address').submit(function(e)
+	{
+		e.preventDefault();
+		$.ajax(
+		{
+			type: "POST",
+			url: 'organisation_address.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#orgaddid").html(data);
+			}
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'organisation_address_table.php',
+			success: function(data)
+			{
+				$("#orgaddid").html(data);
+			}
+		});
+	});
+
+
+function del2(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'organisation_address_delete.php',
+			data: {
+				"oid" : n
+			},
+			success: function(data)
+			{
+				$("#orgaddid").html(data);
+			}
+		});
+}
+
+
+
+</script>
+
+
+</html>

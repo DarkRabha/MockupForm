@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chartered Accountant Form</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="popper.js"></script>
+	<script type="text/javascript" src="bootstrap.js"></script>
+	<script type="text/javascript" src="ajaxjquery.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary py-0">
+	<ul class="navbar-nav">
+		<li class="nav-item active">
+			<a class="nav-link" href="index.html">Personal Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="education.html">Education Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="travel.html">Travel Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="social.html">Social Relations and Involvement</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="anonymous.html">Other Anonymous Details</a>
+		</li>
+	</ul>
+</nav>
+
+<div class="container">
+	<form id="personaldetails" method="post">
+		<div class="form-group">
+			<span for="userid">USER ID:</span>
+			<input type="text" class="form-control form-control-sm" id="userid" name="userid" placeholder="user id">
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="username">Name:</span>
+				<input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="username">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="userknownname">User Known Name:</span>
+				<input type="text" class="form-control form-control-sm"  id="userknownname" name="userknownname"
+				placeholder="Add user known Name">
+				<button type="button" class="btn btn-sm btn-info" onclick="adduserkname()" style="margin-top: 10px;">Add Known Name</button>
+				<p id="userkname"></p>
+				<input type="text" name="moreusername" id="moreusername" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="userdate">Date:</span>
+				<input type="date" class="form-control form-control-sm" id="userdate" name="userdate">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="city">City:</span>
+				<input type="text" class="form-control form-control-sm"  id="city" name="city" placeholder="city">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="state">State:</span>
+				<input type="text" class="form-control form-control-sm" id="state" name="state" placeholder="state">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="country">Country:</span>
+				<input type="text" class="form-control form-control-sm" id="country" name="country" placeholder="Country">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="phno">Phone Number:</span>
+				<input type="text" class="form-control form-control-sm" id="phno" name="phno" placeholder="Phone Number">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="height">Height:</span>
+				<input type="text" class="form-control form-control-sm" id="height" name="height" placeholder="Height">
+				<input type="date" class="form-control form-control-sm" id="dheight" name="dheight">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="weight">Weight:</span>
+				<input type="text" class="form-control form-control-sm" id="weight" name="weight"
+				placeholder="Weight">
+				<input type="date" class="form-control form-control-sm" id="dweight" name="dweight">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="eadd">Email Address:</span>
+				<input type="email" class="form-control form-control-sm" id="eadd" name="eadd"
+				placeholder="example@example.com">
+				<button type="button" class="btn btn-sm btn-info" onclick="addnewemail()" style="margin-top: 10px;">Add more Email</button>
+				<p id="addemail"></p>
+				<input type="text" id="moreemail" name="moreemail" style="display: none;>
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="dob">Birth:</span>
+				<input type="date" class="form-control form-control-sm" id="dob" name="dob">
+				<input type="text" class="form-control form-control-sm" id="pob" name="pob" placeholder="Place Of Birth">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="gender">Gender:</span>
+				<select class="form-control form-control-sm" id="gender" name="gender">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+					<option value="other">Other</option>
+				</select>
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="mothername">Mother Name:</span>
+				<input type="text" class="form-control form-control-sm" id="mothername" name="mothername"
+				placeholder="Mother Name">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="motherknownname">Mother Known Name:</span>
+				<input type="text" class="form-control form-control-sm" id="motherknownname" name="motherknownname"
+				placeholder="Add Mother Known Name">
+				<button type="button" class="btn btn-sm btn-info" onclick="addmotherkname()" style="margin-top: 10px;">Add Known Name</button>
+				<p id="motherkname"></p>
+				<input type="text" id="moremothername" name="moremothername" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="fathername">Father Name:</span>
+				<input type="text" class="form-control form-control-sm" id="fathername" name="fathername"
+				placeholder="Father Name">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="fatherknownname">Father Known Name:</span>
+				<input type="text" class="form-control form-control-sm" id="fatherknownname" name="fatherknownname"
+				placeholder="Add Father Known Name">
+				<button type="button" class="btn btn-sm btn-info" onclick="addfatherkname()" style="margin-top: 10px;">Add Known Name</button>
+				<p id="fatherkname"></p>
+				<input type="text" id="morefathername" name="morefathername" style="display: none;">
+			</div>
+			<div class="col-lg-12 col-md-12">
+				<header><h4>Other Relations -</h4></header>
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="nameofrel">Name Of Relation:</span>
+				<input type="text" class="form-control form-control-sm" id="nameofrel" name="nameofrel"
+				placeholder="Name Of Relation">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="indiname">Individual Name:</span>
+				<input type="text" class="form-control form-control-sm" id="indiname" name="indiname"
+				placeholder="Individual Name">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="brothername">Brother Name:</span>
+				<input type="text" class="form-control form-control-sm" id="brothername" name="brothername"
+				placeholder="Brother Name">
+				<button type="button" class="btn btn-info btn-sm" onclick="addbrother()" style="margin-top: 10px;">+Add More Brother</button>
+				<p id="addmorebrother"></p>
+				<input type="text" name="morebrothername" id="morebrothername" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="brotherknownname">Brother Known Name:</span>
+				<input type="text" class="form-control form-control-sm" id="brotherknownname" name="brotherknownname"
+				placeholder="Add Brother Known Name">
+				<button type="button" class="btn btn-sm btn-info" onclick="addbrotherkname()" style="margin-top: 10px;">Add Known Name</button>
+				<p id="brotherkname"></p>
+				<input type="text" id="morebrotherkname" name="morebrotherkname" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="sistername">Sister Name:</span>
+				<input type="text" class="form-control form-control-sm" id="sistername" name="sistername"
+				placeholder="Sister Name">
+				<button type="button" class="btn btn-info btn-sm" onclick="addsister()" style="margin-top: 10px;">+Add More Sister</button>
+				<p id="addmoresister"></p>
+				<input type="text" name="moresistername" id="moresistername" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="sisterknownname">Sister Known Name:</span>
+				<input type="text" class="form-control form-control-sm" id="sisterknownname" name="sisterknownname"
+				placeholder="Add Sister Known Name">
+				<button type="button" class="btn btn-sm btn-info" onclick="addsisterkname()" style="margin-top: 10px;">Add Known Name</button>
+				<p id="sisterkname"></p>
+				<input type="text" name="moresisterkname" id="moresisterkname" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="religion">Religion:</span>
+				<input type="text" class="form-control form-control-sm" id="religion" name="religion"
+				placeholder="Religion">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="caste">Caste:</span>
+				<input type="text" class="form-control form-control-sm" id="caste" name="caste"
+				placeholder="Caste">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="subcaste">Sub Caste:</span>
+				<input type="text" class="form-control form-control-sm" id="subcaste" name="subcaste"
+				placeholder="Sub Caste">
+				<button type="button" class="btn btn-info btn-sm" onclick="addsubcaste()" style="margin-top: 10px;">+Add More</button>
+				<p id="addnewsubcaste"></p>
+				<input type="text" id="moresubcaste" name="moresubcaste" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="mothertongue">Mother Tongue:</span>
+				<input type="text" class="form-control form-control-sm" id="mothertongue" name="mothertongue"
+				placeholder="Mother Tongue">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="languagesknown">Languages Known:</span>
+				<input type="text" class="form-control form-control-sm" id="languagesknown" name="languagesknown"
+				placeholder="Languages Known">
+				<button type="button" class="btn btn-info btn-sm" onclick="addlanguagesknown()" style="margin-top: 10px;">+Add More</button>
+				<p id="addnewlanguagesknown"></p>
+				<input type="text" id="morelanguagesknown" name="morelanguagesknown" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="buss_emp">Bussiness/Employment:</span>
+				<input type="text"  class="form-control form-control-sm" id="buss_emp" name="buss_emp" 
+				placeholder="Bussiness/Employment">
+				<button type="button" class="btn btn-info btn-sm" onclick="addbussemp()" style="margin-top: 10px;">+Add More</button>
+				<p id="addnewbussemp"></p>
+				<input type="text" id="morebussemp" name="morebussemp" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="hobby">Hobby:</span>
+				<input type="text" class="form-control form-control-sm" id="hobby" name="hobby" placeholder="Hobby">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="favouritecolour">Favourite Colour:</span>
+				<input type="text" class="form-control form-control-sm" id="favouritecolour" name="favouritecolour"
+				placeholder="Favourite Colour">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="favouritefood">Favourite Food:</span>
+				<input type="text" class="form-control form-control-sm" id="favouritefood" name="favouritefood"
+				placeholder="Favourite Food">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="extracir">Extra Curriculum Activities:</span>
+				<input type="text" class="form-control form-control-sm" id="extracir" name="extracir" 
+				placeholder="Extra Curriculum Activities">
+			</div>
+		</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-info btn-sm" name="personsubmit" id="personsubmit">Submit</button>
+			</div>
+	</form>
+</div>
+
+<div class="container">
+	<form id="uphoto" enctype="multipart/form-data" method="post">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="userphoto">Photo:</span>
+				<input type="file" class="form-control form-control-sm" id="userphoto" name="userphoto"
+				placeholder="User Photo">
+				<input type="date" class="form-control form-control-sm" id="photodate" name="photodate">
+			</div>
+			<div class="col-lg-12 col-md-12 form-group">
+				<button type="submitpic" class="btn btn-info btn-sm" name="submitpic" id="submitpic">Add Photo</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="container">
+	<form id="uaddress" method="post">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 form-group">
+				<span>Category:</span>
+				<input type="text" class="form-control form-control-sm" id="usercategory" name="usercategory" placeholder="Category Address">
+				<span for="useraddress">Address:</span>
+				<textarea class="form-control form-control-sm" id="useraddress" name="useraddress" rows="6">
+				</textarea>
+				<input type="date" class="form-control form-control-sm" id="useradddate" name="useradddate">
+			</div>
+			<div class="col-lg-12 col-md-12 form-group">
+				<button type="submitpic" class="btn btn-info btn-sm" id="buttonadd" name="buttonadd">Add Address</button>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="container">
+	<button type="button" class="btn btn-sm"><a href="education.html">Proceed</a></button>
+</div>
+
+
+
+<div id="personid"></div>
+<div id="photoid"></div>
+<div id="addid"></div>
+
+</body>
+
+<script type="text/javascript">
+	var ukname = [];
+
+	function adduserkname()
+	{
+		var u = document.getElementById("userknownname").value;
+		ukname.push(u);
+		document.getElementById("userkname").innerHTML = ukname;
+
+		var u1 = document.getElementById('userkname').innerHTML;
+		document.getElementById('moreusername').value = u1;
+	}
+
+	var addemail = [];
+
+	function addnewemail()
+	{
+		var e = document.getElementById("eadd").value;
+		addemail.push(e);
+		document.getElementById("addemail").innerHTML = addemail;
+
+		var e1 = document.getElementById('addemail').innerHTML;
+		document.getElementById('moreemail').value = e1;
+	}
+
+	var mkname = [];
+
+	function addmotherkname()
+	{
+		var m = document.getElementById("motherknownname").value;
+		mkname.push(m);
+		document.getElementById("motherkname").innerHTML = mkname;
+
+		var m1 = document.getElementById('motherkname').innerHTML;
+		document.getElementById('moremothername').value = m1;
+	}
+	var fkname = [];
+
+	function addfatherkname()
+	{
+		var f = document.getElementById("fatherknownname").value;
+		fkname.push(f);
+		document.getElementById("fatherkname").innerHTML = fkname;
+
+		var f1 = document.getElementById("fatherkname").innerHTML;
+		document.getElementById('morefathername').value = f1;
+	}
+	
+
+	var morebrother = [];
+
+	function addbrother()
+	{
+		var b = document.getElementById("brothername").value;
+		morebrother.push(b);
+		document.getElementById("addmorebrother").innerHTML = morebrother;
+
+		var b1 = document.getElementById('addmorebrother').innerHTML;
+		document.getElementById('morebrothername').value = b1;
+	}
+
+	var bkname = [];
+
+	function addbrotherkname()
+	{
+		var bk = document.getElementById("brotherknownname").value;
+		bkname.push(bk);
+		document.getElementById("brotherkname").innerHTML = bkname;
+
+		var bk1 = document.getElementById('brotherkname').innerHTML;
+		document.getElementById('morebrotherkname').value = bk1;
+	}
+
+	var moresister = [];
+
+	function addsister()
+	{
+		var s = document.getElementById("sistername").value;
+		moresister.push(s);
+		document.getElementById("addmoresister").innerHTML = moresister;
+
+		var s1 = document.getElementById('addmoresister').innerHTML;
+		document.getElementById('moresistername').value = s1;
+	}
+
+	var skname = [];
+
+	function addsisterkname()
+	{
+		var sk = document.getElementById("sisterknownname").value;
+		skname.push(sk);
+		document.getElementById("sisterkname").innerHTML = skname;
+
+		var sk1 = document.getElementById('sisterkname').innerHTML;
+		document.getElementById('moresisterkname').value = sk1;
+	}
+
+	var scname = [];
+
+	function addsubcaste()
+	{
+		var sc = document.getElementById("subcaste").value;
+		scname.push(sc);
+		document.getElementById("addnewsubcaste").innerHTML = scname;
+
+		var sc1 = document.getElementById('addnewsubcaste').innerHTML;
+		document.getElementById('moresubcaste').value = sc1;
+	}
+
+	var lname = [];
+
+	function addlanguagesknown()
+	{
+		var l = document.getElementById("languagesknown").value;
+		lname.push(l);
+		document.getElementById("addnewlanguagesknown").innerHTML = lname;
+
+		var l1 = document.getElementById('addnewlanguagesknown').innerHTML;
+		document.getElementById('morelanguagesknown').value = l1;
+	}
+
+	var bename = [];
+
+	function addbussemp()
+	{
+		var be = document.getElementById("buss_emp").value;
+		bename.push(be);
+		document.getElementById("addnewbussemp").innerHTML = bename;
+
+		var be1 = document.getElementById('addnewbussemp').innerHTML;
+		document.getElementById('morebussemp').value = be1;
+	}
+</script>
+
+<script type="text/javascript">
+	$('#personaldetails').submit(function(e)
+
+	{
+		e.preventDefault();
+
+		$.ajax(
+		{
+			type: "POST",
+			url: 'personal_details.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#personid").html(data);
+			},
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'personal_details_table.php',
+			success: function(data)
+			{
+				$("#personid").html(data);
+			}
+		});
+	});
+
+
+function del(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'personal_details_delete.php',
+			data: {
+				"id" : n
+			},
+			success: function(data)
+			{
+				$("#personid").html(data);
+				
+			}
+		});
+}
+
+$('#uphoto').submit(function(e)
+
+	{
+		e.preventDefault();
+
+		$.ajax(
+		{
+			type: "POST",
+			url: 'photo.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#photoid").html(data);
+			},
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'photo_table.php',
+			success: function(data)
+			{
+				$("#photoid").html(data);
+			}
+		});
+	});
+
+
+function del1(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'photo_delete.php',
+			data: {
+				"pid" : n
+			},
+			success: function(data)
+			{
+				$("#photoid").html(data);
+				
+			}
+		});
+}
+
+$('#uaddress').submit(function(e)
+
+	{
+		e.preventDefault();
+
+		$.ajax(
+		{
+			type: "POST",
+			url: 'useraddress.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#addid").html(data);
+			},
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'useraddress_table.php',
+			success: function(data)
+			{
+				$("#addid").html(data);
+			}
+		});
+	});
+
+
+function del2(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'useraddress_delete.php',
+			data: {
+				"aid" : n
+			},
+			success: function(data)
+			{
+				$("#addid").html(data);
+				
+			}
+		});
+}
+
+</script>
+</html>

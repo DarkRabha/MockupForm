@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chartered Accountant Form</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="popper.js"></script>
+	<script type="text/javascript" src="bootstrap.js"></script>
+	<script type="text/javascript" src="ajaxjquery.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary py-0">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a class="nav-link" href="index.html">Personal Details</a>
+		</li>
+		<li class="nav-item active">
+			<a class="nav-link" href="education.html">Education Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="travel.html">Travel Details</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="social.html">Social Relations and Involvement</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="anonymous.html">Other Anonymous Details</a>
+		</li>
+	</ul>
+</nav>
+
+<div class="container">
+	<form id="education" method="post">
+		<div>
+			<header><h3>Education Details:</h3></header>
+		</div>
+		<div class="form-group">
+			<span for="userid">USER ID:</span>
+			<input type="text" class="form-control form-control-sm" id="userid" name="userid">
+		</div>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="school">Schooling:</span>
+				<input type="text" class="form-control form-control-sm" id="school" name="school" placeholder="Schooling">
+				<button type="button" class="btn btn-info btn-sm" onclick="addschool()" style="margin-top: 10px;">+Add More</button>
+				<p id="newschool"></p>
+				<input type="text" id="moreschool" name="moreschool" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="hs">HS:</span>
+				<input type="text" class="form-control form-control-sm" id="hs" name="hs" name="Higher Secondary">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="graduation">Graduation:</span>
+				<input type="text" class="form-control form-control-sm" id="graduation" name="graduation" 
+				placeholder="Graduation">
+				<button type="button" class="btn btn-info btn-sm" onclick="addgraduation()" style="margin-top: 10px;">+Add More</button>
+				<p id="newgraduation"></p>
+				<input type="text" id="moregraduation" name="moregraduation" style="display: none;">
+			</div>
+			<div class="col-lg-6 col-md-6 form-group">
+				<span for="postgraduation">Post Graduation</span>
+				<input type="text" class="form-control form-control-sm" id="postgraduation" name="postgraduation"
+				placeholder="Post Graduation">
+				<button type="button" class="btn btn-info btn-sm" onclick="addpostgraduation()" style="margin-top: 10px;">+Add More</button>
+				<p id="newpostgraduation"></p>
+				<input type="text" id="morepostgraduation" name="morepostgraduation" style="display: none;">
+			</div>
+			<div class="col-lg-12 col-md-12">
+				<header><h5>Professional and Other Courses:</h5></header>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#procourses" style="margin-top: 10px;">
+				+Create</button>
+			</div>
+			<div class="col-lg-12 col-md-12">
+				<header><h5>Awards and Achievements:</h5></header>
+			</div>
+			<div class="col-lg-6 col-md-6">
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#awardsaa" style="margin-top: 10px;">
+				Awards</button>
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="submitedu" class="btn btn-info btn-sm" id="submitedu" name="submitedu" style="margin-top: 10px;">Submit</button>
+		</div>
+	</form>
+</div>
+
+
+<div class="modal" id="procourses">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="professionalcourses" method="post">
+				<div class="modal-header">
+          			<h4 class="modal-title">Professional And Other Courses</h4>
+          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		</div>
+        		<div class="modal-body">
+        			<div class="row">
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="nameinst">Name Of the Institution</span>
+        					<input type="text" class="form-control form-control-sm" id="nameinst" name="nameinst" placeholder="Name Of Institution">
+        				</div>
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="nameofcourse">Name of Course:</span>
+        					<input type="text" class="form-control form-control-sm" id="nameofcourse" 
+        					name="nameofcourse" placeholder="Name Of Course">
+        					<button type="button" class="btn btn-info btn-sm" onclick="addmorecourse()" style="margin-top: 10px;">+Add More</button>
+							<p id="newcourse"></p>
+							<input type="text" id="morecourse" name="morecourse" style="display: none;">
+        				</div>
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="yearofadd">Year Of Admission:</span>
+        					<input type="text" class="form-control form-control-sm" id="yearofadd" 
+        					name="yearofadd" placeholder="Year Of Admission">
+        				</div>
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="yearofcomp">Year Of Completion:</span>
+        					<input type="text" class="form-control form-control-sm" id="yearofcomp" 
+        					name="yearofcomp" placeholder="Year Of Completion">
+        				</div>
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="passpercent">Passing Percentage:</span>
+        					<input type="text" class="form-control form-control-sm" id="passpercent" 
+        					name="passpercent" placeholder="Passing Percentage">
+        				</div>
+        			</div>
+        		</div>
+        		<div class="modal-footer">
+          			<button type="submitpro" class="btn btn-danger btn-sm" name="submitpro" id="submitpro" style="margin-top: 10px;">Done</button>
+       			</div>
+       		</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="awardsaa">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form id="awardsandachievements" method="post">
+				<div class="modal-header">
+          			<h4 class="modal-title">Awards And Achievements</h4>
+          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+        		</div>
+        		<div class="modal-body">
+        			<div class="row">
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="nameofaward">Name Of the Award</span>
+        					<input type="text" class="form-control form-control-sm" id="nameofaward" name="nameofaward" placeholder="Name Of Award">
+        				</div>
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="purposeforward">Purpose For Which Awarded:</span>
+        					<input type="text" class="form-control form-control-sm" id="purposeforward" 
+        					name="purposeforward" placeholder="Purpose For Which Awarded">
+        				</div>
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="dateaward">Date Of Award:</span>
+        					<input type="date" class="form-control form-control-sm" id="dateaward" 
+        					name="dateaward" placeholder="Date Of Award">
+        				</div>
+        				<div class="col-lg-6 col-md-6 form-group">
+        					<span for="rewardorg">Rewarding Organisation:</span>
+        					<input type="text" class="form-control form-control-sm" id="rewardorg" 
+        					name="rewardorg" placeholder="Rewarding Organisation">
+        				</div>
+        			</div>
+        		</div>
+        		<div class="modal-footer">
+          			<button type="submitorg" class="btn btn-danger btn-sm" name="awardsubmit" id="awardsubmit" style="margin-top: 10px;">Done</button>
+       			</div>
+       		</form>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<button type="button" class="btn btn-sm"><a href="travel.html">Proceed</a></button>
+</div>
+
+<div id="educationid"></div>
+<div id="profid"></div>
+<div id="awardid"></div>
+
+
+</body>
+<script type="text/javascript">
+
+	var sc = [];
+
+	function addschool()
+	{
+		var s = document.getElementById('school').value;
+		sc.push(s);
+		document.getElementById('newschool').innerHTML = sc;
+
+		var s1 = document.getElementById('newschool').innerHTML;
+		document.getElementById('moreschool').value = s1;
+	}
+
+	var gr = [];
+
+	function addgraduation()
+	{
+		var g = document.getElementById('graduation').value;
+		gr.push(g);
+		document.getElementById('newgraduation').innerHTML = gr;
+
+		var g1 = document.getElementById('newgraduation').innerHTML;
+		document.getElementById('moregraduation').value = g1;
+	} 
+
+	var pg = [];
+
+	function addpostgraduation()
+	{
+		var p = document.getElementById('postgraduation').value;
+		pg.push(p);
+		document.getElementById('newpostgraduation').innerHTML = pg;
+
+		var p1 = document.getElementById('newpostgraduation').innerHTML;
+		document.getElementById('morepostgraduation').value = p1;
+	}
+
+	var co = [];
+
+	function addmorecourse()
+	{
+		var c = document.getElementById('nameofcourse').value;
+		co.push(c);
+		document.getElementById('newcourse').innerHTML = co;
+
+		var c1 = document.getElementById('newcourse').innerHTML;
+		document.getElementById('morecourse').value = c1;
+	}
+
+</script>
+
+<script type="text/javascript">
+	$('#education').submit(function(e)
+	{
+		e.preventDefault();
+		$.ajax(
+		{
+			type: "POST",
+			url: 'education.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#educationid").html(data);
+			}
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'education_table.php',
+			success: function(data)
+			{
+				$("#educationid").html(data);
+			}
+		});
+	});
+
+
+function del(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'education_delete.php',
+			data: {
+				"id" : n
+			},
+			success: function(data)
+			{
+				$("#educationid").html(data);
+			}
+		});
+}	
+
+$('#professionalcourses').submit(function(e)
+	{
+		e.preventDefault();
+		$.ajax(
+		{
+			type: "POST",
+			url: 'professional.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#profid").html(data);
+			}
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'professional_table.php',
+			success: function(data)
+			{
+				$("#profid").html(data);
+			}
+		});
+	});
+
+
+function del1(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'professional_delete.php',
+			data: {
+				"pid" : n
+			},
+			success: function(data)
+			{
+				$("#profid").html(data);
+			}
+		});
+}	
+
+$('#awardsandachievements').submit(function(e)
+	{
+		e.preventDefault();
+		$.ajax(
+		{
+			type: "POST",
+			url: 'awards.php',
+			data: $(this).serialize(),
+			success: function(data)
+			{
+				$("#awardid").html(data);
+			}
+		});
+	});
+
+	$(document).ready(function(){
+		$.ajax({
+			type: "GET",
+			url: 'awards_table.php',
+			success: function(data)
+			{
+				$("#awardid").html(data);
+			}
+		});
+	});
+
+
+function del2(n){
+	$.ajax(
+		{
+			type: "POST",
+			url: 'awards_delete.php',
+			data: {
+				"aid" : n
+			},
+			success: function(data)
+			{
+				$("#awardid").html(data);
+			}
+		});
+}	
+</script>
+
+</html>
